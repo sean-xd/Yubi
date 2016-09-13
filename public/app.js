@@ -1,12 +1,10 @@
 // Browser Fingerprint
-if(!localStorage.refreshed){
-  localStorage.refreshed = true;
-  location.reload();
-}
-
 new Fingerprint2({extendedFontList: true}).get((result, components) => {
+  if(result !== localStorage.last){
+    localStorage.last = result;
+    return location.reload();
+  }
   document.getElementById("uid").textContent = result;
-  console.log(JSON.stringify(components));
 });
 
 // Location Fingerprint
