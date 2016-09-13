@@ -1,0 +1,83 @@
+/* Reset */
+html, body, main {
+  font-family: "Segoe UI", "Helvetica Neue";
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Classes */
+.hide {opacity: 0 !important;}
+
+/* Header and Footer */
+header, footer {
+  background: rgba(0,0,0,.7);
+  box-shadow: 0px 0px 20px 5px rgba(0,0,0,.5);
+  height: 40px;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+header {top: 0px;}
+footer {bottom: 0px;}
+
+/* Main */
+.background {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 1;
+  position: absolute;
+  transition: .4s all;
+}
+
+main {
+  box-sizing: border-box;
+  font-size: 0;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 12.5vh 2.5vw 0 2.5vw;
+  position: relative;
+  text-align: center;
+}
+
+.title, #uid {transition: .2s all;}
+
+.title {
+  color: white;
+  font-size: 50px;
+  font-weight: 700;
+  padding: 30px;
+  text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
+}
+
+#uid, #loc {
+  background: rgba(240,240,240,.7);
+  border-radius: 4px;
+  box-shadow: 0px 0px 20px -5px rgba(20,20,20,.5);
+  font-size: 40px;
+  padding: 20px;
+}
+
+/* Responsive */
+@media(max-width: 800px){
+  .title {font-size: 45px; padding: 25px;}
+  #uid {font-size: 35px;}
+}
+
+@media(max-width: 650px){
+  .title {font-size: 35px; padding: 20px;}
+  #uid {font-size: 30px; padding: 15px;}
+}
+
+@media(max-width: 520px){
+  .title {font-size: 30px; padding: 15px;}
+  #uid {font-size: 25px;}
+}
+
+@media(max-width: 430px){
+  .title {font-size: 25px; padding: 10px;}
+  #uid {font-size: 20px; padding: 10px;}
+}

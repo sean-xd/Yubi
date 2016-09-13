@@ -1,0 +1,14 @@
+{
+  "name": "yubi",
+  "version": "0.0.1",
+  "description": "Device Fingerprinting Library",
+  "main": "server.js",
+  "repository": "sean-xd/Yubi",
+  "author": "Sean Murray <savino.act@gmail.com>",
+  "license": "WTFPL-2.0",
+  "homepage": "https://sean.mu:4261",
+  "dependencies": {
+    "express": "^4.14.0",
+    "ws": "^1.1.1"
+  }
+}
