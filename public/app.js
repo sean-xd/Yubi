@@ -12,16 +12,18 @@ var dom = {
 };
 
 // Browser Fingerprint
-new Fingerprint2({extendedFontList: true}).get((result, components) => {
-  // Refreshes if this isn't the same id you got last time.
-  // For some reason if you restart a browser the first visit gives you a different id than every subsequent visit.
-  if(result !== localStorage.last){
-    localStorage.last = result;
-    return location.reload();
-  }
-  dom.uid.textContent = result;
-  login();
-});
+socket.onopen = () => {
+  new Fingerprint2({extendedFontList: true}).get((result, components) => {
+    // Refreshes if this isn't the same id you got last time.
+    // For some reason if you restart a browser the first visit gives you a different id than every subsequent visit.
+    if(result !== localStorage.last){
+      localStorage.last = result;
+      return location.reload();
+    }
+    dom.uid.textContent = result;
+    login();
+  });
+};
 
 // Location and User Fingerprint
 socket.onmessage = data => {
