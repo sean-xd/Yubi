@@ -48,10 +48,12 @@ function login(){
   socket.send(JSON.stringify(obj));
 }
 
+var browsers = [];
 function loadUser(data){
   if(!data) return;
   dom.authButton.classList.add("accounted");
   dom.authButton.textContent = data.username;
+  browsers = data.browsers;
 }
 
 // Utility

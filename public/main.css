@@ -13,15 +13,23 @@ html, body, main {
 
 /* Header and Footer */
 header, footer {
-  background: rgba(0,0,0,.7);
+  background: rgba(0,0,0,.8);
   box-shadow: 0px 0px 20px 5px rgba(0,0,0,.5);
+  box-sizing: border-box;
   height: 40px;
   position: absolute;
   width: 100%;
   z-index: 1;
 }
 header {top: 0px;}
-footer {bottom: 0px;}
+footer {
+  bottom: 0px;
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
+}
+a {text-decoration: none;}
 
 /* Auth */
 .auth {
@@ -73,7 +81,7 @@ main {
   box-sizing: border-box;
   font-size: 0;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 900px;
   padding: 12.5vh 2.5vw 0 2.5vw;
   position: relative;
   text-align: center;

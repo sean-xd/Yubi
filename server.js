@@ -38,7 +38,6 @@ function saveUsers(){
 }
 
 function sendUser(ws, user){
-  console.log(user);
   ws.send(JSON.stringify({type: "user", data: {username: user.username, browsers: user.browsers}}));
 }
 
