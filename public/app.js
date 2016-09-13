@@ -41,6 +41,7 @@ function login(){
     obj.password = dom.passInput.value;
     dom.userInput.value = "";
     dom.passInput.value = "";
+    dom.auth.classList.remove("left300px");
   }
   socket.send(JSON.stringify(obj));
 }
