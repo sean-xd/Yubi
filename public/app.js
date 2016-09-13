@@ -1,6 +1,7 @@
 // Browser Fingerprint
 new Fingerprint2({extendedFontList: true}).get((result, components) => {
   document.getElementById("uid").textContent = result;
+  console.log(JSON.stringify(components));
 });
 
 // Location Fingerprint
