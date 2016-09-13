@@ -14,6 +14,10 @@ wss.on("connection", ws => {
   ws.on("message", data => {
     data = JSON.parse(data);
     var user = users.find(e => e.browsers.indexOf(data.uid) > -1);
+    if(data.del){
+      user.browsers = user.browsers.filter(e => e !== data.uid);
+      return saveUsers();
+    }
     if(user) return sendUser(ws, user);
     if(data.username) user = users.find(e => e.username === data.username);
     if(!user && data.username && data.password){

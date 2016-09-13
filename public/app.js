@@ -8,7 +8,8 @@ var dom = {
   userInput: el("#user-input"),
   passInput: el("#pass-input"),
   uid: el("#uid"),
-  loc: el("#loc")
+  loc: el("#loc"),
+  sidebar: el("aside")[0]
 };
 
 // Browser Fingerprint
@@ -32,8 +33,14 @@ socket.onmessage = data => {
   if(data.type === "user") loadUser(data.data);
 }
 
+// Account Functionality
 function openAuth(){
   if(dom.authButton.textContent === "Account") dom.auth.classList.toggle("left300px");
+  else {
+    dom.sidebar.classList.toggle("left240px");
+    dom.auth.classList.toggle("left140px");
+    dom.authButton.classList.toggle("w240px");
+  }
 }
 
 function login(){
@@ -53,7 +60,35 @@ function loadUser(data){
   if(!data) return;
   dom.authButton.classList.add("accounted");
   dom.authButton.textContent = data.username;
-  browsers = data.browsers;
+  data.browsers.forEach(addBrowser);
+}
+
+// Sidebar
+function addBrowser(uid){
+  var browser = document.createElement("div"),
+    browserId = document.createElement("div"),
+    browserDelete = document.createElement("i");
+  browser.className = "browser";
+  browserId.className = "browser-id";
+  browserId.textContent = uid;
+  browserId.addEventListener("click", e => openBrowser(e.target));
+  browserDelete.className = "material-icons browser-delete";
+  browserDelete.textContent = "close";
+  browserDelete.addEventListener("click", e => deleteBrowser(e.target.parentNode, uid));
+  browser.appendChild(browserId);
+  browser.appendChild(browserDelete);
+  dom.sidebar.appendChild(browser);
+}
+
+function deleteBrowser(parent, uid){
+  dom.sidebar.removeChild(parent);
+  socket.send(JSON.stringify({uid: uid, del: true}));
+  if(localStorage.last === uid) location.reload();
+}
+
+function openBrowser(target){
+  el(".browser-delete", target.parentNode)[0].classList.toggle("left40px");
+  target.classList.toggle("left40px");
 }
 
 // Utility
