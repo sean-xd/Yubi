@@ -1,4 +1,9 @@
 // Browser Fingerprint
+if(!localStorage.refreshed){
+  localStorage.refreshed = true;
+  location.reload();
+}
+
 new Fingerprint2({extendedFontList: true}).get((result, components) => {
   document.getElementById("uid").textContent = result;
   console.log(JSON.stringify(components));
