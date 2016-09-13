@@ -8,7 +8,14 @@
   <script src="app.js" defer></script>
 </head>
 <body>
-  <header></header>
+  <header>
+    <div class="auth">
+      <div class="auth-button" onclick="openAuth();">Account</div>
+      <input type="text" id="user-input" placeholder="Username">
+      <input type="password" id="pass-input" placeholder="Password">
+      <div class="auth-submit" onclick="login();">Accept</div>
+    </div>
+  </header>
   <img class="background hide" src="https://source.unsplash.com/category/nature" onload="this.classList.remove('hide');">
   <main>
     <div class="title">Unique Browser ID:</div>

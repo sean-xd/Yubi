@@ -9,6 +9,7 @@ html, body, main {
 
 /* Classes */
 .hide {opacity: 0 !important;}
+.left300px {transform: translate3d(-300px, 0, 0);}
 
 /* Header and Footer */
 header, footer {
@@ -21,6 +22,41 @@ header, footer {
 }
 header {top: 0px;}
 footer {bottom: 0px;}
+
+/* Auth */
+.auth {
+  display: inline-block;
+  font-size: 0;
+  height: 40px;
+  max-width: 400px;
+  position: absolute;
+  right: -300px;
+  top: 0;
+  transition: .3s all;
+  width: 100%;
+}
+
+.auth-button, .auth-submit, #user-input, #pass-input {
+  border: none;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 16px;
+  height: 40px;
+  padding: 10px;
+  vertical-align: top;
+  width: 25%;
+}
+.auth-button, .auth-submit {
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  transition: .3s all;
+}
+.auth-submit {background: rgba(40,170,40,.6);}
+.accounted {
+  background: rgba(240,240,240,.9);
+  color: black;
+}
 
 /* Main */
 .background {
