@@ -8,11 +8,12 @@ var server = require("http").createServer(),
 app.use(express.static(__dirname + "/public"));
 
 wss.on("connection", ws => {
-  var loc = crypto.createHmac("sha256", "secret_location")
-    .update(ws._socket.remoteAddress)
-    .digest("hex");
-  ws.send(loc.slice(0,30));
+  ws.send(hmac(ws._socket.remoteAddress));
 });
 
 server.on('request', app);
 server.listen(4261);
+
+function hmac(data){
+  return crypto.createHmac("sha256", "lazy_secret").update(data).digest("hex").slice(0, 30);
+}
