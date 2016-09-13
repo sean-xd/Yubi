@@ -47,6 +47,7 @@ function login(){
 }
 
 function loadUser(data){
+  if(!data) return;
   dom.authButton.classList.add("accounted");
   dom.authButton.textContent = data.username;
 }
