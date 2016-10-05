@@ -6,6 +6,7 @@ html, body, main {
   overflow: hidden;
   width: 100%;
 }
+body {background: rgb(40,40,40);}
 
 /* Classes */
 .hide {opacity: 0 !important;}
